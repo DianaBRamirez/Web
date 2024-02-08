@@ -7,7 +7,28 @@ buscador.addEventListener("keyup", function() {
         const htmlOriginal = elemen.getAttribute("data-original-text") || elemen.innerText;
         
         if (searchTerm.test(htmlOriginal) && buscador.value !== '') {
-            // Realizar la sustitución del texto con la clase CSS
+            const htmlNuevo = htmlOriginal.replace(searchTerm, '<span style="background-color: yellow;">$&</span>');
+            elemen.innerHTML = htmlNuevo;
+            cont = cont + 1;
+        } else {
+            elemen.innerHTML = htmlOriginal;
+        }
+    });
+    Array.from(document.getElementsByTagName("h5")).forEach(elemen => {
+        const htmlOriginal = elemen.getAttribute("data-original-text") || elemen.innerText;
+        
+        if (searchTerm.test(htmlOriginal) && buscador.value !== '') {
+            const htmlNuevo = htmlOriginal.replace(searchTerm, '<span style="background-color: yellow;">$&</span>');
+            elemen.innerHTML = htmlNuevo;
+            cont = cont + 1;
+        } else {
+            elemen.innerHTML = htmlOriginal;
+        }
+    });
+    Array.from(document.getElementsByTagName("h2")).forEach(elemen => {
+        const htmlOriginal = elemen.getAttribute("data-original-text") || elemen.innerText;
+        
+        if (searchTerm.test(htmlOriginal) && buscador.value !== '') {
             const htmlNuevo = htmlOriginal.replace(searchTerm, '<span style="background-color: yellow;">$&</span>');
             elemen.innerHTML = htmlNuevo;
             cont = cont + 1;
